@@ -1,4 +1,6 @@
 #pragma once
+#include "add-guest-form.h"
+
 
 namespace HotelInfoSystem {
 
@@ -22,8 +24,10 @@ namespace HotelInfoSystem {
 			//TODO: Add the constructor code here
 			//
 
+			// Basic output.
 			oleDbConnection1->Open();
 			myDs = gcnew DataSet();
+			oleDbSelectCommand1->CommandText = L"SELECT * FROM Гость";
 			oleDbSelectCommand1->Connection = oleDbConnection1;
 			oleDbDataAdapter1->Fill(myDs);
 			dataGridView1->DataSource = myDs;
@@ -49,6 +53,7 @@ namespace HotelInfoSystem {
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
 	protected:
 
 
@@ -80,6 +85,7 @@ namespace HotelInfoSystem {
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -120,19 +126,19 @@ namespace HotelInfoSystem {
 			this->dataGridView1->Location = System::Drawing::Point(39, 34);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(348, 214);
+			this->dataGridView1->Size = System::Drawing::Size(497, 214);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(39, 255);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(348, 20);
+			this->textBox1->Size = System::Drawing::Size(497, 20);
 			this->textBox1->TabIndex = 1;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(151, 281);
+			this->button1->Location = System::Drawing::Point(239, 281);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(119, 30);
 			this->button1->TabIndex = 2;
@@ -140,11 +146,22 @@ namespace HotelInfoSystem {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &mainform::button1_Click);
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(408, 285);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(128, 23);
+			this->button2->TabIndex = 3;
+			this->button2->Text = L"Созать нового гостя";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &mainform::button2_Click);
+			// 
 			// mainform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(445, 326);
+			this->ClientSize = System::Drawing::Size(590, 331);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->dataGridView1);
@@ -156,15 +173,13 @@ namespace HotelInfoSystem {
 
 		}
 #pragma endregion
-		System::Data::DataSet^ myDs;
 		// Рукописные члены формы.
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		enactCommand(textBox1->Text);
-		if (textBox1->Text->Contains("SELECT"))
-			showTable("Гость");
-	}
+		System::Data::DataSet^ myDs;
+		addguestform^ addingform;
 	private: 
+		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void enactCommand(System::String^ command);
 		System::Void showTable(System::String^ table);
+		System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
