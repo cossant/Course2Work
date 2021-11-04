@@ -121,13 +121,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="add-guest-form.cpp" />
+    <ClCompile Include="main-Form.cpp" />
     <ClCompile Include="PoE.cpp" />
     <ClCompile Include="start-form.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="add-guest-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="data-ask-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="main-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="start-form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="add-guest-form.resx">
+      <DependentUpon>add-guest-form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data-ask-form.resx">
+      <DependentUpon>data-ask-form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main-form.resx">
+      <DependentUpon>main-form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start-form.resx">
+      <DependentUpon>start-form.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

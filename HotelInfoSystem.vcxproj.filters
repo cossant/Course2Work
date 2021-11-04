@@ -18,12 +18,27 @@
     <ClInclude Include="start-form.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="main-form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="add-guest-form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="data-ask-form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="start-form.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PoE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main-Form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="add-guest-form.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
