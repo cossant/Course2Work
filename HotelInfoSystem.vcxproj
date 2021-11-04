@@ -130,6 +130,9 @@
     <ClInclude Include="add-guest-form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="data-ask-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="main-form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -140,6 +143,9 @@
   <ItemGroup>
     <EmbeddedResource Include="add-guest-form.resx">
       <DependentUpon>add-guest-form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data-ask-form.resx">
+      <DependentUpon>data-ask-form.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main-form.resx">
       <DependentUpon>main-form.h</DependentUpon>

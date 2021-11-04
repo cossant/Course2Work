@@ -57,7 +57,8 @@ namespace HotelInfoSystem {
 
 		System::Data::OleDb::OleDbConnection^ outerConnector;
 		System::Data::OleDb::OleDbDataAdapter^ outerAdapter;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::Label^ label6;
+
 		   System::Data::OleDb::OleDbCommand^ addingCommand;
 
 #pragma region Windows Form Designer generated code
@@ -77,8 +78,7 @@ namespace HotelInfoSystem {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -166,23 +166,21 @@ namespace HotelInfoSystem {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &addguestform::button1_Click);
 			// 
-			// dataGridView1
+			// label6
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(660, 35);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(429, 215);
-			this->dataGridView1->TabIndex = 10;
+			this->label6->AutoSize = true;
+			this->label6->ForeColor = System::Drawing::Color::Green;
+			this->label6->Location = System::Drawing::Point(144, 285);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(0, 13);
+			this->label6->TabIndex = 10;
 			// 
 			// addguestform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1201, 307);
-			this->Controls->Add(this->dataGridView1);
+			this->ClientSize = System::Drawing::Size(567, 307);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
@@ -195,7 +193,6 @@ namespace HotelInfoSystem {
 			this->Controls->Add(this->label1);
 			this->Name = L"addguestform";
 			this->Text = L"addguestform";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
