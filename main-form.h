@@ -21,7 +21,7 @@ namespace HotelInfoSystem {
 	public:
 		mainform(System::String^ workfilePath)
 		{
-			InitializeComponent();
+			InitializeComponent(workfilePath);
 			//
 			//TODO: Add the constructor code here
 			//
@@ -84,7 +84,7 @@ namespace HotelInfoSystem {
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		void InitializeComponent(void)
+		void InitializeComponent(System::String^ filepath)
 		{
 			this->oleDbSelectCommand1 = (gcnew System::Data::OleDb::OleDbCommand());
 			this->oleDbConnection1 = (gcnew System::Data::OleDb::OleDbConnection());
@@ -110,8 +110,7 @@ namespace HotelInfoSystem {
 			// 
 			// oleDbConnection1
 			// 
-			this->oleDbConnection1->ConnectionString = L"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"D:\\МИЭТ\\Работы\\Компьютерная практи"
-				L"ка\\Курсовая\\HotelBase.accdb\"";
+			this->oleDbConnection1->ConnectionString = L"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\""+filepath+"\"";
 			// 
 			// oleDbDataAdapter1
 			// 
