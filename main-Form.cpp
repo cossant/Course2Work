@@ -61,6 +61,21 @@ System::Void HotelInfoSystem::mainform::button6_Click(System::Object^ sender, Sy
 	return System::Void();
 }
 
+System::Void HotelInfoSystem::mainform::button7_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	askdaysform^ tempDialForm = gcnew askdaysform();
+	if (tempDialForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		System::Int32^ daysNeeded = Int32(tempDialForm->numericUpDown1->Value);
+		enactCommand("SELECT Гость.Код_паспорта, Гость.Фамилия, Гость.Имя, Гость.Отчество, Sum(Договор.Длительность) AS [Sum-Длительность] "
+			+ L"FROM Гость INNER JOIN Договор ON Гость.Код_паспорта = Договор.Код_паспорта "
+			+ L"GROUP BY Гость.Код_паспорта, Гость.Фамилия, Гость.Имя, Гость.Отчество "
+			+ L"HAVING(((Sum(Договор.Длительность)) >"+daysNeeded+"));");
+		showTable("Гость");
+	}
+	return System::Void();
+}
+
 System::Void HotelInfoSystem::mainform::showTable(System::String^ table)
 {
 	dataGridView1->DataSource = myDs;

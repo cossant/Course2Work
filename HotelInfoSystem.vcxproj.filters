@@ -27,6 +27,9 @@
     <ClInclude Include="data-ask-form.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ask-days-form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="start-form.cpp">
@@ -41,5 +44,11 @@
     <ClCompile Include="add-guest-form.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ask-days-form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HotelBase.accdb" />
   </ItemGroup>
 </Project>
