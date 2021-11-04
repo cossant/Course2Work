@@ -1,6 +1,7 @@
 #pragma once
 #include "add-guest-form.h"
 #include "data-ask-form.h"
+#include "ask-days-form.h"
 
 
 namespace HotelInfoSystem {
@@ -215,6 +216,7 @@ namespace HotelInfoSystem {
 			this->button7->TabIndex = 8;
 			this->button7->Text = L"Долгожители... ";
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &mainform::button7_Click);
 			// 
 			// mainform
 			// 
@@ -251,5 +253,6 @@ namespace HotelInfoSystem {
 		System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

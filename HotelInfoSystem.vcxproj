@@ -122,12 +122,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="add-guest-form.cpp" />
+    <ClCompile Include="ask-days-form.cpp" />
     <ClCompile Include="main-Form.cpp" />
     <ClCompile Include="PoE.cpp" />
     <ClCompile Include="start-form.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add-guest-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ask-days-form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="data-ask-form.h">
@@ -143,6 +147,9 @@
   <ItemGroup>
     <EmbeddedResource Include="add-guest-form.resx">
       <DependentUpon>add-guest-form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ask-days-form.resx">
+      <DependentUpon>ask-days-form.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="data-ask-form.resx">
       <DependentUpon>data-ask-form.h</DependentUpon>
