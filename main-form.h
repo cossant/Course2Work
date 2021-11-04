@@ -185,6 +185,7 @@ namespace HotelInfoSystem {
 			this->button4->TabIndex = 5;
 			this->button4->Text = L"Проживающие";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &mainform::button4_Click);
 			// 
 			// button5
 			// 
@@ -204,6 +205,7 @@ namespace HotelInfoSystem {
 			this->button6->TabIndex = 7;
 			this->button6->Text = L"Просмотреть выезд...";
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &mainform::button6_Click);
 			// 
 			// button7
 			// 
@@ -247,5 +249,7 @@ namespace HotelInfoSystem {
 		System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
