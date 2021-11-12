@@ -30,6 +30,9 @@
     <ClInclude Include="ask-days-form.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="add-contract-form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="start-form.cpp">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ask-days-form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="add-contract-form.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

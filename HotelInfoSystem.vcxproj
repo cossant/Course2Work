@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="add-contract-form.cpp" />
     <ClCompile Include="add-guest-form.cpp" />
     <ClCompile Include="ask-days-form.cpp" />
     <ClCompile Include="main-Form.cpp" />
@@ -128,6 +129,9 @@
     <ClCompile Include="start-form.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="add-contract-form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="add-guest-form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -145,6 +149,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="add-contract-form.resx">
+      <DependentUpon>add-contract-form.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add-guest-form.resx">
       <DependentUpon>add-guest-form.h</DependentUpon>
     </EmbeddedResource>
