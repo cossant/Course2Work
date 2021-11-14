@@ -15,12 +15,17 @@ namespace HotelInfoSystem {
 	public ref class addcontractform : public System::Windows::Forms::Form
 	{
 	public:
-		addcontractform(void)
+		addcontractform(System::Data::OleDb::OleDbConnection^ outerConnection, System::Data::OleDb::OleDbDataAdapter^ outerAdapter)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+
+			adapter = outerAdapter;
+			connection = outerConnection;
+			fillPassPossibleValues();
+			refilNumbPossibleValues();
 		}
 
 	protected:
@@ -34,17 +39,39 @@ namespace HotelInfoSystem {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
-	protected:
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label1;
-	public: System::Windows::Forms::ListBox^ listBox1;
-	private: System::Windows::Forms::Label^ label2;
-	public: System::Windows::Forms::ListBox^ listBox2;
-	public: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	public: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: 
+		System::Windows::Forms::Button^ button1;
+		System::Windows::Forms::Button^ button2;
+		System::Windows::Forms::Label^ label1;
+		System::Windows::Forms::Label^ label2;
+		System::Windows::Forms::Label^ label3;
+		System::Windows::Forms::Label^ label4;
+		System::Data::OleDb::OleDbConnection^ connection;
+		System::Data::OleDb::OleDbDataAdapter^ adapter;
+		System::Data::OleDb::OleDbCommand^ numbSearchCommand;
+	public: 
+		System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+		System::Windows::Forms::NumericUpDown^ numericUpDown1;
+		System::Windows::Forms::ComboBox^ comboBox1;
+		System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	public:
+
+	public:
+
+
+
+	public:
+
+
+
+
+
+
+	public:
+
+
+
 
 	private:
 		/// <summary>
@@ -62,14 +89,16 @@ namespace HotelInfoSystem {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -95,48 +124,33 @@ namespace HotelInfoSystem {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(76, 41);
+			this->label1->Location = System::Drawing::Point(76, 89);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(113, 13);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Назначаемый номер";
 			// 
-			// listBox1
-			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(224, 37);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(120, 17);
-			this->listBox1->TabIndex = 3;
-			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(113, 90);
+			this->label2->Location = System::Drawing::Point(113, 138);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(76, 13);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Код паспорта";
 			// 
-			// listBox2
-			// 
-			this->listBox2->FormattingEnabled = true;
-			this->listBox2->Location = System::Drawing::Point(224, 86);
-			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(120, 17);
-			this->listBox2->TabIndex = 5;
-			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(224, 132);
+			this->dateTimePicker1->Location = System::Drawing::Point(224, 37);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
 			this->dateTimePicker1->TabIndex = 6;
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &addcontractform::dateTimePicker1_ValueChanged);
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(99, 138);
+			this->label3->Location = System::Drawing::Point(99, 43);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(90, 13);
 			this->label3->TabIndex = 7;
@@ -158,28 +172,61 @@ namespace HotelInfoSystem {
 			this->numericUpDown1->Size = System::Drawing::Size(120, 20);
 			this->numericUpDown1->TabIndex = 9;
 			// 
-			// addcontranctform
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(223, 86);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->TabIndex = 10;
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(224, 135);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 21);
+			this->comboBox2->TabIndex = 11;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(475, 37);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->Size = System::Drawing::Size(334, 218);
+			this->dataGridView1->TabIndex = 12;
+			// 
+			// addcontractform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(451, 275);
+			this->ClientSize = System::Drawing::Size(871, 279);
+			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->listBox2);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Name = L"addcontranctform";
+			this->Name = L"addcontractform";
 			this->Text = L"addcontranctform";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	private: 
+		System::Void fillPassPossibleValues();
+		System::Void refilNumbPossibleValues();
+		System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }

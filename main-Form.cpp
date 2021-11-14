@@ -103,15 +103,16 @@ System::Void HotelInfoSystem::mainform::button8_Click(System::Object^ sender, Sy
 
 System::Void HotelInfoSystem::mainform::button9_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	addcontractform^ tempaddingform = gcnew addcontractform();
+	addcontractform^ tempaddingform = gcnew addcontractform(oleDbConnection1, oleDbDataAdapter1);
 	if (tempaddingform->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		enactCommand(L"INSERT INTO Договор(Код_номера, Код_паспорта, Дата_подписания, Длительность) "
-			+ L"VALUES("+tempaddingform->listBox1->SelectedValue->ToString()+", "+tempaddingform->listBox2->SelectedValue->ToString()
+			+ L"VALUES("+tempaddingform->comboBox1->SelectedValue->ToString()+", "+tempaddingform->comboBox2->SelectedValue->ToString()
 			+", #"+tempaddingform->dateTimePicker1->Value.ToString("yyyy-MM-dd") + "#, "+Int32(tempaddingform->numericUpDown1->Value)+"); ");
 		MessageBox::Show("Договор с указанными характеристиками создан.","Договор", MessageBoxButtons::OK);
-		return System::Void();
 	}
+	oleDbSelectCommand1->CommandText = L"SELECT Гость.*, Договор.*, Номер.* FROM((Гость INNER JOIN Договор ON Гость.[Код_паспорта] = Договор.[Код_паспорта]) INNER JOIN Номер ON Договор.[Код_номера] = Номер.[Код_номера])";
+	oleDbDataAdapter1->SelectCommand = oleDbSelectCommand1;
 	return System::Void();
 }
 
