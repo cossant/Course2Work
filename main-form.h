@@ -170,22 +170,22 @@ namespace HotelInfoSystem {
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(53, 102);
+			this->dataGridView1->Location = System::Drawing::Point(77, 99);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(497, 215);
+			this->dataGridView1->Size = System::Drawing::Size(488, 214);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(53, 378);
+			this->textBox1->Location = System::Drawing::Point(53, 376);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(497, 20);
 			this->textBox1->TabIndex = 1;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(200, 404);
+			this->button1->Location = System::Drawing::Point(200, 402);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(208, 19);
 			this->button1->TabIndex = 2;
@@ -215,7 +215,7 @@ namespace HotelInfoSystem {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(335, 324);
+			this->button4->Location = System::Drawing::Point(335, 322);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(215, 22);
 			this->button4->TabIndex = 5;
@@ -225,7 +225,7 @@ namespace HotelInfoSystem {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(335, 348);
+			this->button5->Location = System::Drawing::Point(335, 346);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(215, 23);
 			this->button5->TabIndex = 6;
@@ -235,7 +235,7 @@ namespace HotelInfoSystem {
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(63, 323);
+			this->button6->Location = System::Drawing::Point(53, 321);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(219, 24);
 			this->button6->TabIndex = 7;
@@ -245,7 +245,7 @@ namespace HotelInfoSystem {
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(63, 348);
+			this->button7->Location = System::Drawing::Point(53, 346);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(219, 23);
 			this->button7->TabIndex = 8;
@@ -256,7 +256,7 @@ namespace HotelInfoSystem {
 			// descLabel
 			// 
 			this->descLabel->AutoSize = true;
-			this->descLabel->Location = System::Drawing::Point(74, 86);
+			this->descLabel->Location = System::Drawing::Point(78, 83);
 			this->descLabel->Name = L"descLabel";
 			this->descLabel->Size = System::Drawing::Size(0, 13);
 			this->descLabel->TabIndex = 9;
@@ -278,16 +278,16 @@ namespace HotelInfoSystem {
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button8);
 			this->panel1->Controls->Add(this->button2);
-			this->panel1->Location = System::Drawing::Point(77, 12);
+			this->panel1->Location = System::Drawing::Point(77, 13);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(165, 53);
 			this->panel1->TabIndex = 11;
 			// 
 			// button9
 			// 
-			this->button9->Location = System::Drawing::Point(378, 19);
+			this->button9->Location = System::Drawing::Point(355, 13);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(139, 46);
+			this->button9->Size = System::Drawing::Size(165, 53);
 			this->button9->TabIndex = 12;
 			this->button9->Text = L"ќформить аренду номера";
 			this->button9->UseVisualStyleBackColor = true;
@@ -297,7 +297,7 @@ namespace HotelInfoSystem {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(590, 510);
+			this->ClientSize = System::Drawing::Size(597, 440);
 			this->Controls->Add(this->button9);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->descLabel);
@@ -333,5 +333,7 @@ namespace HotelInfoSystem {
 		System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button8_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void button9_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }

@@ -54,7 +54,7 @@ namespace HotelInfoSystem {
 		System::Windows::Forms::NumericUpDown^ numericUpDown1;
 		System::Windows::Forms::ComboBox^ comboBox1;
 		System::Windows::Forms::ComboBox^ comboBox2;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
 	public:
 
 	public:
@@ -96,9 +96,7 @@ namespace HotelInfoSystem {
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -188,23 +186,11 @@ namespace HotelInfoSystem {
 			this->comboBox2->Size = System::Drawing::Size(121, 21);
 			this->comboBox2->TabIndex = 11;
 			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(475, 37);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(334, 218);
-			this->dataGridView1->TabIndex = 12;
-			// 
 			// addcontractform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(871, 279);
-			this->Controls->Add(this->dataGridView1);
+			this->ClientSize = System::Drawing::Size(449, 279);
 			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->numericUpDown1);
@@ -218,7 +204,6 @@ namespace HotelInfoSystem {
 			this->Name = L"addcontractform";
 			this->Text = L"addcontranctform";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

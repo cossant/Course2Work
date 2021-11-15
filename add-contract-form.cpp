@@ -31,9 +31,6 @@ System::Void HotelInfoSystem::addcontractform::refilNumbPossibleValues()
 	adapter->Fill(tempset);
 	connection->Close();
 
-	dataGridView1->DataSource = tempset;
-	dataGridView1->DataMember = "Гость";
-
 	comboBox1->ValueMember = "Код_номера";
 	comboBox1->DataSource = tempset->Tables["Гость"];
 }
