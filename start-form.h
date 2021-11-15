@@ -66,10 +66,11 @@ namespace HotelInfoSystem {
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->openFileDialog1->Filter = L"accdb|*.accdb";
 			// 
 			// fileSetButton
 			// 
-			this->fileSetButton->Location = System::Drawing::Point(133, 169);
+			this->fileSetButton->Location = System::Drawing::Point(126, 67);
 			this->fileSetButton->Name = L"fileSetButton";
 			this->fileSetButton->Size = System::Drawing::Size(75, 23);
 			this->fileSetButton->TabIndex = 0;
@@ -80,7 +81,7 @@ namespace HotelInfoSystem {
 			// WellcomeText
 			// 
 			this->WellcomeText->AutoSize = true;
-			this->WellcomeText->Location = System::Drawing::Point(82, 61);
+			this->WellcomeText->Location = System::Drawing::Point(76, 39);
 			this->WellcomeText->Name = L"WellcomeText";
 			this->WellcomeText->Size = System::Drawing::Size(189, 13);
 			this->WellcomeText->TabIndex = 1;
@@ -90,7 +91,7 @@ namespace HotelInfoSystem {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(346, 261);
+			this->ClientSize = System::Drawing::Size(346, 106);
 			this->Controls->Add(this->WellcomeText);
 			this->Controls->Add(this->fileSetButton);
 			this->Name = L"startform";
