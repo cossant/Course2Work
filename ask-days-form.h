@@ -111,7 +111,7 @@ namespace HotelInfoSystem {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->numericUpDown1);
 			this->Name = L"askdaysform";
-			this->Text = L"askdaysform";
+			this->Text = L"Запрос числа дней";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

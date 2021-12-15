@@ -202,7 +202,7 @@ namespace HotelInfoSystem {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"addcontractform";
-			this->Text = L"addcontranctform";
+			this->Text = L"ќформление аренды";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -15,6 +15,7 @@ System::Void HotelInfoSystem::mainform::enactCommand(System::String^ command)
 	myDs = gcnew DataSet();
 	oleDbSelectCommand1->Connection = oleDbConnection1;
 	oleDbSelectCommand1->CommandText = command;
+	oleDbSelectCommand1->ExecuteNonQuery();
 	oleDbDataAdapter1->Fill(myDs);
 	oleDbConnection1->Close();
 	button8->Enabled = false;
@@ -28,7 +29,8 @@ System::Void HotelInfoSystem::mainform::button5_Click(System::Object^ sender, Sy
 	{
 		System::String^ date = tempform->dateTimePicker1->Value.ToString("yyyy-MM-dd");
 		enactCommand(L"SELECT Номер.Код_номера FROM Номер WHERE ((Номер.Код_номера) Not In "
-			+ L"(SELECT Договор.Код_номера FROM Договор WHERE((#" + date + L"#   >= Дата_подписания) AND(#" + date + "# <= (Дата_подписания + Длительность)))))");
+			+ L"(SELECT Договор.Код_номера FROM Договор WHERE((#" + date + L"#   >= Дата_подписания) AND(#" 
+			+ date + "# <= (Дата_подписания + Длительность)))))");
 		showTable("Гость");
 		descLabel->Text = L"Свободные на " + date + " номера:";
 	}
@@ -70,7 +72,7 @@ System::Void HotelInfoSystem::mainform::button7_Click(System::Object^ sender, Sy
 	if (tempDialForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		System::Int32^ daysNeeded = Int32(tempDialForm->numericUpDown1->Value);
-		enactCommand("SELECT Гость.Код_паспорта, Гость.Фамилия, Гость.Имя, Гость.Отчество, Sum(Договор.Длительность) AS [Sum-Длительность] "
+		enactCommand("SELECT Гость.Код_паспорта, Гость.Фамилия, Гость.Имя, Гость.Отчество, Sum(Договор.Длительность) AS [Общий срок проживания] "
 			+ L"FROM Гость INNER JOIN Договор ON Гость.Код_паспорта = Договор.Код_паспорта "
 			+ L"GROUP BY Гость.Код_паспорта, Гость.Фамилия, Гость.Имя, Гость.Отчество "
 			+ L"HAVING(((Sum(Договор.Длительность)) >"+daysNeeded+"));");
@@ -106,7 +108,7 @@ System::Void HotelInfoSystem::mainform::button9_Click(System::Object^ sender, Sy
 	addcontractform^ tempaddingform = gcnew addcontractform(oleDbConnection1, oleDbDataAdapter1);
 	if (tempaddingform->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
-		enactCommand(L"INSERT INTO Договор(Код_номера, Код_паспорта, Дата_подписания, Длительность) "
+		enactCommand(L"INSERT INTO Договор (Код_номера, Код_паспорта, Дата_подписания, Длительность) "
 			+ L"VALUES("+tempaddingform->comboBox1->SelectedValue->ToString()+", "+tempaddingform->comboBox2->SelectedValue->ToString()
 			+", #"+tempaddingform->dateTimePicker1->Value.ToString("yyyy-MM-dd") + "#, "+Int32(tempaddingform->numericUpDown1->Value)+"); ");
 		MessageBox::Show("Договор с указанными характеристиками создан.","Договор", MessageBoxButtons::OK);

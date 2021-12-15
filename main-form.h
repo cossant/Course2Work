@@ -96,18 +96,7 @@ namespace HotelInfoSystem {
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ button9;
-	protected:
-
-
-
-
-
-
-
-	protected:
-
-	protected:
-
+	
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -170,7 +159,7 @@ namespace HotelInfoSystem {
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(77, 99);
+			this->dataGridView1->Location = System::Drawing::Point(60, 93);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->Size = System::Drawing::Size(488, 214);

@@ -10,3 +10,5 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     Application::Run(gcnew startform);
     return 0;
 }
+
+

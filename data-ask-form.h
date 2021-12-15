@@ -94,7 +94,7 @@ namespace HotelInfoSystem {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->label1);
 			this->Name = L"dataaskform";
-			this->Text = L"dataaskform";
+			this->Text = L"Запрос даты";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

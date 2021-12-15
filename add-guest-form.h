@@ -192,7 +192,7 @@ namespace HotelInfoSystem {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"addguestform";
-			this->Text = L"addguestform";
+			this->Text = L"Регистрация гостя";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
